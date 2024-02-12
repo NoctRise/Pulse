@@ -15,4 +15,5 @@ struct ScanData : Codable{
     let riskfactors : [RiskFactor]
 
     let attributes : Attribute
+    let threats : [String]
 }

@@ -17,6 +17,7 @@ struct Attribute : Codable{
         case port
         case usedProtocol = "protocol"
         case technology
+        
   }
    
 }

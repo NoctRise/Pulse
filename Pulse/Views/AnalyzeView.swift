@@ -10,7 +10,7 @@ import SwiftUI
 struct AnalyzeView: View {
     @State var searchTerm = ""
     @State var activeScan = false
-    @StateObject var pulseViewModel = PulseViewModel()
+    @EnvironmentObject var pulseViewModel : PulseViewModel
     
     
     var body: some View {
@@ -26,24 +26,43 @@ struct AnalyzeView: View {
                 Button{
                     pulseViewModel.queueScan(ioc: searchTerm, activeScan: activeScan)
                 }
-        label: {
-            Text("Scan")
-                .frame(maxWidth: .infinity)
+            label: {
+                Text("Scan")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+                Button("Retrieve Result"){
+                    pulseViewModel.retrieveScanResult()
+                }
+                .buttonStyle(.borderedProminent)
+                
+                
+                    if(!pulseViewModel.pendingScans.isEmpty){
+                        Text("Pending Scans")
+                            .font(.headline)
+                        List(pulseViewModel.pendingScans, id: \.qid){ scan in
+                            Text("Queue id: \(String(scan.qid))")
+                            
+                        }
+                    }
+
+                Text("Finished Scans")
+                    .font(.headline)
+                List(pulseViewModel.finishedScans, id: \.qid){ scan in
+                    NavigationLink("\(scan.data?.indicator ?? "\(scan.qid)")"){
+                        ScanResultDetailView(scanResult: scan)
+                    }
+                }
+            }
+            .padding()
+            .disableAutocorrection(true)
+            .textInputAutocapitalization(.never)
+            .navigationTitle("Analyze")
         }
-        .buttonStyle(.borderedProminent)
-            
-                Text("\(pulseViewModel.scanResult?.qid ?? -1)")
-            Spacer()
-            
-        }
-        .padding()
-        .disableAutocorrection(true)
-        .textInputAutocapitalization(.never)
-        .navigationTitle("Analyze")
     }
-}
 }
 
 #Preview {
     AnalyzeView()
+        .environmentObject(PulseViewModel())
 }

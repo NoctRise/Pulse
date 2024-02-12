@@ -21,6 +21,8 @@
 		A94C78202B73C36C00430A54 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C781F2B73C36C00430A54 /* ScanData.swift */; };
 		A94C78222B73C51100430A54 /* RiskFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78212B73C51100430A54 /* RiskFactor.swift */; };
 		A94C78242B73C62600430A54 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78232B73C62600430A54 /* Attribute.swift */; };
+		A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78252B75126D00430A54 /* ScanResultDetailView.swift */; };
+		A94C78292B7A2E7D00430A54 /* Threat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78282B7A2E7D00430A54 /* Threat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		A94C781F2B73C36C00430A54 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
 		A94C78212B73C51100430A54 /* RiskFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiskFactor.swift; sourceTree = "<group>"; };
 		A94C78232B73C62600430A54 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		A94C78252B75126D00430A54 /* ScanResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultDetailView.swift; sourceTree = "<group>"; };
+		A94C78282B7A2E7D00430A54 /* Threat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		A94C780C2B73904500430A54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A94C78272B75196900430A54 /* SubViews */,
 				A94C780D2B73905C00430A54 /* CommunityFeedView.swift */,
 				A94C780F2B73907800430A54 /* AnalyzeView.swift */,
 				A94C78112B73909200430A54 /* ExploreView.swift */,
@@ -125,6 +130,7 @@
 				A94C781F2B73C36C00430A54 /* ScanData.swift */,
 				A94C78212B73C51100430A54 /* RiskFactor.swift */,
 				A94C78232B73C62600430A54 /* Attribute.swift */,
+				A94C78282B7A2E7D00430A54 /* Threat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +141,14 @@
 				A94C781D2B73BE2500430A54 /* PulseViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A94C78272B75196900430A54 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78252B75126D00430A54 /* ScanResultDetailView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,10 +222,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94C781B2B73B9B600430A54 /* ScanResult.swift in Sources */,
+				A94C78292B7A2E7D00430A54 /* Threat.swift in Sources */,
 				A94C78012B738FCC00430A54 /* ContentView.swift in Sources */,
 				A94C781E2B73BE2500430A54 /* PulseViewModel.swift in Sources */,
 				A94C78152B73B76600430A54 /* PulseRepository.swift in Sources */,
 				A94C78202B73C36C00430A54 /* ScanData.swift in Sources */,
+				A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */,
 				A94C78222B73C51100430A54 /* RiskFactor.swift in Sources */,
 				A94C78242B73C62600430A54 /* Attribute.swift in Sources */,
 				A94C78182B73B7C000430A54 /* HTTPError.swift in Sources */,

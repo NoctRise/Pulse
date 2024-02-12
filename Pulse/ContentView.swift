@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var pulseViewModel = PulseViewModel()
+    
     var body: some View {
         
             TabView{
@@ -26,6 +28,7 @@ struct ContentView: View {
                         Label("Explore", systemImage: "eye")
                     }
             }
+            .environmentObject(pulseViewModel)
     }
 }
 

@@ -29,11 +29,9 @@ class PulseViewModel : ObservableObject{
                 print("Failed queueing the scan: \(error)")
             }
         }
-        
     }
     
     
-#warning("Rewrite")
     func retrieveScanResult(){
         Task {
             do {

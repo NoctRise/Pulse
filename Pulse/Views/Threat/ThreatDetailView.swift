@@ -10,7 +10,7 @@ import SwiftUI
 struct ThreatDetailView: View {
     
     var threat : Threat
-    var attributeStrings = ["technology","tactic", "technique"]
+    var attributeStrings = ["technology","industry","tactic", "technique"]
     
     var body: some View {
         Form{

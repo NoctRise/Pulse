@@ -8,12 +8,9 @@
 import Foundation
 
 struct ScanData : Codable{
-
     let indicator : String
     let risk : String?
-    
     let riskfactors : [RiskFactor]
-
     let attributes : Attribute
     let threats : [String]
 }

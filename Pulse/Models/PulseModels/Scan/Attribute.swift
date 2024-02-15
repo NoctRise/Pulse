@@ -10,7 +10,6 @@ import Foundation
 struct Attribute : Codable{
     let port, usedProtocol, technology : [String]?
     
-    
     enum CodingKeys: String, CodingKey {
         case port
         case usedProtocol = "protocol"

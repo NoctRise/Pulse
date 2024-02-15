@@ -11,7 +11,7 @@ struct AnalyzeView: View {
     @State var searchTerm = ""
     @State var activeScan = false
     @EnvironmentObject var pulseViewModel : PulseViewModel
-    
+    @State var showAlert = false
     
     var body: some View {
         
@@ -24,7 +24,14 @@ struct AnalyzeView: View {
                 Toggle("Active scan", isOn: $activeScan)
                 
                 Button{
-                    pulseViewModel.queueScan(ioc: searchTerm, activeScan: activeScan)
+                    if (!searchTerm.isEmpty){
+                        pulseViewModel.queueScan(ioc: searchTerm, activeScan: activeScan)
+                        searchTerm = ""
+                    }
+                    else{
+                        showAlert = true
+                    }
+                    
                 }
             label: {
                 Text("Scan")
@@ -54,6 +61,9 @@ struct AnalyzeView: View {
                     }
                 }
                 
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Error"), message: Text("Please a domain or ip adress!"), dismissButton: .default(Text("OK")))
             }
             .listStyle(.plain)
             .padding()

@@ -26,6 +26,12 @@
 		A94C782B2B7A648F00430A54 /* ThreatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */; };
 		A94C782F2B7B9C4000430A54 /* ThreatAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */; };
 		A94C78312B7B9F4D00430A54 /* ThreatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */; };
+		A94C78332B7E1FE300430A54 /* RedditRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78322B7E1FE300430A54 /* RedditRepository.swift */; };
+		A94C78392B7E21AB00430A54 /* RedditReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78382B7E21AB00430A54 /* RedditReponse.swift */; };
+		A94C783D2B7E242300430A54 /* RedditPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C783C2B7E242300430A54 /* RedditPost.swift */; };
+		A94C783F2B7E31D400430A54 /* RedditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C783E2B7E31D400430A54 /* RedditViewModel.swift */; };
+		A94C78482B7E379300430A54 /* FeedListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78472B7E379300430A54 /* FeedListItemView.swift */; };
+		A94C784B2B7E4EA900430A54 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C784A2B7E4EA900430A54 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,12 @@
 		A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatListItemView.swift; sourceTree = "<group>"; };
 		A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatAttribute.swift; sourceTree = "<group>"; };
 		A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatDetailView.swift; sourceTree = "<group>"; };
+		A94C78322B7E1FE300430A54 /* RedditRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditRepository.swift; sourceTree = "<group>"; };
+		A94C78382B7E21AB00430A54 /* RedditReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditReponse.swift; sourceTree = "<group>"; };
+		A94C783C2B7E242300430A54 /* RedditPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPost.swift; sourceTree = "<group>"; };
+		A94C783E2B7E31D400430A54 /* RedditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditViewModel.swift; sourceTree = "<group>"; };
+		A94C78472B7E379300430A54 /* FeedListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListItemView.swift; sourceTree = "<group>"; };
+		A94C784A2B7E4EA900430A54 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,7 @@
 		A94C77FD2B738FCC00430A54 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A94C78492B7E4E9F00430A54 /* Utils */,
 				A94C781C2B73BAD500430A54 /* ViewModels */,
 				A94C78192B73B9AB00430A54 /* Models */,
 				A94C78162B73B7B400430A54 /* Enums */,
@@ -105,10 +118,9 @@
 		A94C780C2B73904500430A54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A94C78272B75196900430A54 /* SubViews */,
-				A94C780D2B73905C00430A54 /* CommunityFeedView.swift */,
-				A94C780F2B73907800430A54 /* AnalyzeView.swift */,
-				A94C78112B73909200430A54 /* ExploreView.swift */,
+				A94C78462B7E375700430A54 /* Analyze */,
+				A94C78452B7E367200430A54 /* Feed */,
+				A94C78272B75196900430A54 /* Threat */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A94C78142B73B76600430A54 /* PulseRepository.swift */,
+				A94C78322B7E1FE300430A54 /* RedditRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -132,12 +145,8 @@
 		A94C78192B73B9AB00430A54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A94C781A2B73B9B600430A54 /* ScanResult.swift */,
-				A94C781F2B73C36C00430A54 /* ScanData.swift */,
-				A94C78212B73C51100430A54 /* RiskFactor.swift */,
-				A94C78232B73C62600430A54 /* Attribute.swift */,
-				A94C78282B7A2E7D00430A54 /* Threat.swift */,
-				A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */,
+				A94C78352B7E214800430A54 /* Reddit */,
+				A94C78342B7E1FF900430A54 /* PulseModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,18 +155,83 @@
 			isa = PBXGroup;
 			children = (
 				A94C781D2B73BE2500430A54 /* PulseViewModel.swift */,
+				A94C783E2B7E31D400430A54 /* RedditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		A94C78272B75196900430A54 /* SubViews */ = {
+		A94C78272B75196900430A54 /* Threat */ = {
 			isa = PBXGroup;
 			children = (
-				A94C78252B75126D00430A54 /* ScanResultDetailView.swift */,
+				A94C78112B73909200430A54 /* ExploreView.swift */,
 				A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */,
 				A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */,
 			);
-			path = SubViews;
+			path = Threat;
+			sourceTree = "<group>";
+		};
+		A94C78342B7E1FF900430A54 /* PulseModels */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78372B7E217200430A54 /* Scan */,
+				A94C78362B7E215200430A54 /* Threat */,
+			);
+			path = PulseModels;
+			sourceTree = "<group>";
+		};
+		A94C78352B7E214800430A54 /* Reddit */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78382B7E21AB00430A54 /* RedditReponse.swift */,
+				A94C783C2B7E242300430A54 /* RedditPost.swift */,
+			);
+			path = Reddit;
+			sourceTree = "<group>";
+		};
+		A94C78362B7E215200430A54 /* Threat */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78282B7A2E7D00430A54 /* Threat.swift */,
+				A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */,
+			);
+			path = Threat;
+			sourceTree = "<group>";
+		};
+		A94C78372B7E217200430A54 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				A94C781A2B73B9B600430A54 /* ScanResult.swift */,
+				A94C781F2B73C36C00430A54 /* ScanData.swift */,
+				A94C78212B73C51100430A54 /* RiskFactor.swift */,
+				A94C78232B73C62600430A54 /* Attribute.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		A94C78452B7E367200430A54 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				A94C780D2B73905C00430A54 /* CommunityFeedView.swift */,
+				A94C78472B7E379300430A54 /* FeedListItemView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		A94C78462B7E375700430A54 /* Analyze */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78252B75126D00430A54 /* ScanResultDetailView.swift */,
+				A94C780F2B73907800430A54 /* AnalyzeView.swift */,
+			);
+			path = Analyze;
+			sourceTree = "<group>";
+		};
+		A94C78492B7E4E9F00430A54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A94C784A2B7E4EA900430A54 /* WebView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94C781B2B73B9B600430A54 /* ScanResult.swift in Sources */,
+				A94C784B2B7E4EA900430A54 /* WebView.swift in Sources */,
 				A94C78292B7A2E7D00430A54 /* Threat.swift in Sources */,
+				A94C78482B7E379300430A54 /* FeedListItemView.swift in Sources */,
 				A94C78012B738FCC00430A54 /* ContentView.swift in Sources */,
 				A94C781E2B73BE2500430A54 /* PulseViewModel.swift in Sources */,
 				A94C78152B73B76600430A54 /* PulseRepository.swift in Sources */,
+				A94C783D2B7E242300430A54 /* RedditPost.swift in Sources */,
 				A94C78202B73C36C00430A54 /* ScanData.swift in Sources */,
 				A94C782B2B7A648F00430A54 /* ThreatListItemView.swift in Sources */,
 				A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */,
@@ -244,9 +321,12 @@
 				A94C78182B73B7C000430A54 /* HTTPError.swift in Sources */,
 				A94C780E2B73905C00430A54 /* CommunityFeedView.swift in Sources */,
 				A94C782F2B7B9C4000430A54 /* ThreatAttribute.swift in Sources */,
+				A94C78392B7E21AB00430A54 /* RedditReponse.swift in Sources */,
 				A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */,
 				A94C78102B73907800430A54 /* AnalyzeView.swift in Sources */,
 				A94C78122B73909200430A54 /* ExploreView.swift in Sources */,
+				A94C78332B7E1FE300430A54 /* RedditRepository.swift in Sources */,
+				A94C783F2B7E31D400430A54 /* RedditViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

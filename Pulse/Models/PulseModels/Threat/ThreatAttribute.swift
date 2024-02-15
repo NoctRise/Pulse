@@ -8,5 +8,5 @@
 import Foundation
 
 struct ThreatAttribute : Codable{
-    let tactic, technique, technology : [String]
+    let tactic, technique, technology, industry : [String]
 }

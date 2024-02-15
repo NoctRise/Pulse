@@ -11,6 +11,7 @@ struct CommunityFeedView: View {
     var body: some View {
         Text("Community Feed")
     }
+    
 }
 
 #Preview {

@@ -23,6 +23,9 @@
 		A94C78242B73C62600430A54 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78232B73C62600430A54 /* Attribute.swift */; };
 		A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78252B75126D00430A54 /* ScanResultDetailView.swift */; };
 		A94C78292B7A2E7D00430A54 /* Threat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78282B7A2E7D00430A54 /* Threat.swift */; };
+		A94C782B2B7A648F00430A54 /* ThreatListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */; };
+		A94C782F2B7B9C4000430A54 /* ThreatAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */; };
+		A94C78312B7B9F4D00430A54 /* ThreatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		A94C78232B73C62600430A54 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		A94C78252B75126D00430A54 /* ScanResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultDetailView.swift; sourceTree = "<group>"; };
 		A94C78282B7A2E7D00430A54 /* Threat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threat.swift; sourceTree = "<group>"; };
+		A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatListItemView.swift; sourceTree = "<group>"; };
+		A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatAttribute.swift; sourceTree = "<group>"; };
+		A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 				A94C78212B73C51100430A54 /* RiskFactor.swift */,
 				A94C78232B73C62600430A54 /* Attribute.swift */,
 				A94C78282B7A2E7D00430A54 /* Threat.swift */,
+				A94C782E2B7B9C4000430A54 /* ThreatAttribute.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				A94C78252B75126D00430A54 /* ScanResultDetailView.swift */,
+				A94C782A2B7A648F00430A54 /* ThreatListItemView.swift */,
+				A94C78302B7B9F4D00430A54 /* ThreatDetailView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -227,11 +236,14 @@
 				A94C781E2B73BE2500430A54 /* PulseViewModel.swift in Sources */,
 				A94C78152B73B76600430A54 /* PulseRepository.swift in Sources */,
 				A94C78202B73C36C00430A54 /* ScanData.swift in Sources */,
+				A94C782B2B7A648F00430A54 /* ThreatListItemView.swift in Sources */,
 				A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */,
 				A94C78222B73C51100430A54 /* RiskFactor.swift in Sources */,
 				A94C78242B73C62600430A54 /* Attribute.swift in Sources */,
+				A94C78312B7B9F4D00430A54 /* ThreatDetailView.swift in Sources */,
 				A94C78182B73B7C000430A54 /* HTTPError.swift in Sources */,
 				A94C780E2B73905C00430A54 /* CommunityFeedView.swift in Sources */,
+				A94C782F2B7B9C4000430A54 /* ThreatAttribute.swift in Sources */,
 				A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */,
 				A94C78102B73907800430A54 /* AnalyzeView.swift in Sources */,
 				A94C78122B73909200430A54 /* ExploreView.swift in Sources */,

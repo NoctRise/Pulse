@@ -9,7 +9,6 @@ import Foundation
 
 struct ScanResult : Codable{
     let data : ScanData?
-    let success : String?
+    let success, status : String?
     let qid : Int
-    let status : String?
 }

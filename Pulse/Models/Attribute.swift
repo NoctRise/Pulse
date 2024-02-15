@@ -8,9 +8,7 @@
 import Foundation
 
 struct Attribute : Codable{
-    let port : [String]
-    let usedProtocol : [String]
-    let technology :  [String]
+    let port, usedProtocol, technology : [String]?
     
     
     enum CodingKeys: String, CodingKey {
@@ -20,4 +18,5 @@ struct Attribute : Codable{
         
   }
    
+    static let dummy = Attribute(port: [], usedProtocol: [], technology: [])
 }

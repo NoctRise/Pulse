@@ -47,5 +47,5 @@ struct ScanResultDetailView: View {
 }
 
 #Preview {
-    ScanResultDetailView(scanResult: ScanResult(data: nil, success: "success", qid: 213123123, status: "finished"))
+    ScanResultDetailView(scanResult: ScanResult(data: nil, success: "success", status: "finished", qid: 213123123))
 }

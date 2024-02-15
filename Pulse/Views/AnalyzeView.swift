@@ -53,7 +53,9 @@ struct AnalyzeView: View {
                         ScanResultDetailView(scanResult: scan)
                     }
                 }
+                
             }
+            .listStyle(.plain)
             .padding()
             .disableAutocorrection(true)
             .textInputAutocapitalization(.never)

@@ -9,6 +9,5 @@ import Foundation
 
 struct RiskFactor : Codable{
     let rfid : Int
-    let description : String
-    let risk : String
+    let description, risk : String
 }

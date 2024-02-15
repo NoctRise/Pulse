@@ -15,6 +15,9 @@ class PulseViewModel : ObservableObject{
     private var qid = 0
     @Published var threat : Threat?
     
+    @Published var showLoadingIndicator = false
+    
+    
     func queueScan(ioc : String, activeScan : Bool){
         Task {
             do {
@@ -54,13 +57,13 @@ class PulseViewModel : ObservableObject{
     func getThreatDetails(threatName : String){
         Task {
             do {
-                threat = try await PulseRepository.getThreatDetails(threatName: threatName)
-                
-                
+                showLoadingIndicator = true
+             threat = try await PulseRepository.getThreatDetails(threatName: threatName)
             }
             catch {
                 print("Failed getting threat details: \(error)")
             }
+            showLoadingIndicator = false
         }
     }
     

@@ -6,12 +6,29 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct PulseApp: App {
+    
+    @StateObject private var userViewModel = UserViewModel()
+    
+    init(){
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            if userViewModel.userIsLoggedIn{
+                ContentView()
+            }
+            else{
+                AuthenticationView()
+            }
+            
         }
+        .environmentObject(userViewModel)
     }
 }

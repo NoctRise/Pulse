@@ -19,20 +19,23 @@ struct CommunityFeedView: View {
                     ForEach(posts, id: \.data?.id){ post in
                         FeedListItemView(post: post)
                             .onTapGesture {
-                                url = "https://www.reddit.com\(post.data!.permalink)"
+                                url="https://www.reddit.com\(String(post.data!.permalink))"
                             }
                     }
                 }
                 else {
                     Text("Pull to refresh feed.")
                     Spacer()
-                    Image(systemName: "chevron.down")
-                    
+                    Image(systemName: "chevron.down")   
                 }
-                
             }
             .onChange(of: url) {
                 showSheet = true
+            }
+            .toolbar{
+                NavigationLink(destination: SettingsView()){
+                    Image(systemName: "gearshape")
+                }
             }
             .scrollIndicators(.never)
             .sheet(isPresented: $showSheet, content: {WebView(url: URL(string: url)!)})

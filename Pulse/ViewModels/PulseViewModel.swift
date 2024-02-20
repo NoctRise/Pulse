@@ -28,8 +28,7 @@ class PulseViewModel : ObservableObject{
             catch{
                 print("Failed queueing the scan: \(error)")
             }
-        }
-    }
+        }}
     
     
     func retrieveScanResult(){
@@ -56,7 +55,7 @@ class PulseViewModel : ObservableObject{
         Task {
             do {
                 showLoadingIndicator = true
-             threat = try await PulseRepository.getThreatDetails(threatName: threatName)
+                threat = try await PulseRepository.getThreatDetails(threatName: threatName)
             }
             catch {
                 print("Failed getting threat details: \(error)")

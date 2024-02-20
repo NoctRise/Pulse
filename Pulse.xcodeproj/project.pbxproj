@@ -76,6 +76,7 @@
 		A94C78A22B83A11F00430A54 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A94C78A12B83A11F00430A54 /* FirebaseMessaging */; };
 		A94C78A42B83A11F00430A54 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = A94C78A32B83A11F00430A54 /* FirebasePerformance */; };
 		A94C78A72B83A18D00430A54 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78A62B83A18D00430A54 /* AuthenticationView.swift */; };
+		A94C78AA2B84959300430A54 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78A92B84959300430A54 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		A94C78722B83A03E00430A54 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
 		A94C78752B83A08600430A54 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A94C78A62B83A18D00430A54 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		A94C78A92B84959300430A54 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 		A94C780C2B73904500430A54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A94C78A82B84958500430A54 /* Settings */,
 				A94C78A52B83A14800430A54 /* Authentication */,
 				A94C78462B7E375700430A54 /* Analyze */,
 				A94C78452B7E367200430A54 /* Feed */,
@@ -351,6 +354,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		A94C78A82B84958500430A54 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A94C78A92B84959300430A54 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -487,6 +498,7 @@
 				A94C780E2B73905C00430A54 /* CommunityFeedView.swift in Sources */,
 				A94C782F2B7B9C4000430A54 /* ThreatAttribute.swift in Sources */,
 				A94C78392B7E21AB00430A54 /* RedditReponse.swift in Sources */,
+				A94C78AA2B84959300430A54 /* SettingsView.swift in Sources */,
 				A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */,
 				A94C78102B73907800430A54 /* AnalyzeView.swift in Sources */,
 				A94C78732B83A03E00430A54 /* FireUser.swift in Sources */,

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CommunityFeedView: View {
     @EnvironmentObject var redditViewModel : RedditViewModel
-    @State var showSheet = false
-    @State var url = ""
+    
     var body: some View {
         
         NavigationStack{
@@ -19,18 +18,15 @@ struct CommunityFeedView: View {
                     ForEach(posts, id: \.data?.id){ post in
                         FeedListItemView(post: post)
                             .onTapGesture {
-                                url="https://www.reddit.com\(String(post.data!.permalink))"
+                                redditViewModel.showWebView(post: post)
                             }
                     }
                 }
                 else {
                     Text("Pull to refresh feed.")
                     Spacer()
-                    Image(systemName: "chevron.down")   
+                    Image(systemName: "chevron.down")
                 }
-            }
-            .onChange(of: url) {
-                showSheet = true
             }
             .toolbar{
                 NavigationLink(destination: SettingsView()){
@@ -38,7 +34,17 @@ struct CommunityFeedView: View {
                 }
             }
             .scrollIndicators(.never)
-            .sheet(isPresented: $showSheet, content: {WebView(url: URL(string: url)!)})
+            .sheet(isPresented: $redditViewModel.showSheet, content: {
+                VStack{
+                    HStack{
+                        Button("", systemImage: "xmark", action: {redditViewModel.showSheet.toggle()})
+                            .padding()
+                    }
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                    
+                    WebView(url: URL(string: redditViewModel.url)!)
+                }
+            })
             .navigationTitle("Community feed")
         }
         
@@ -46,7 +52,6 @@ struct CommunityFeedView: View {
             redditViewModel.getRedditPosts()
         }
     }
-    
 }
 
 #Preview {

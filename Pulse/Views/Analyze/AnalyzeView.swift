@@ -48,7 +48,7 @@ struct AnalyzeView: View {
                         Text("Pending Scans")
                             .font(.headline)
                         List(pulseViewModel.pendingScans, id: \.qid){ scan in
-                            Text("Queue id: \(String(scan.qid))")
+                            Text("Queue id: \(String(scan.qid ?? -1))")
                             
                         }
                     }
@@ -56,14 +56,14 @@ struct AnalyzeView: View {
                 Text("Finished Scans")
                     .font(.headline)
                 List(pulseViewModel.finishedScans, id: \.qid){ scan in
-                    NavigationLink("\(scan.data?.indicator ?? "\(scan.qid)")"){
+                    NavigationLink("\(scan.data?.indicator ?? "\(String(describing: scan.qid))")"){
                         ScanResultDetailView(scanResult: scan)
                     }
                 }
                 
             }
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Error"), message: Text("Please a domain or ip adress!"), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Error"), message: Text("Please add a domain or ip adress!"), dismissButton: .default(Text("OK")))
             }
             .listStyle(.plain)
             .padding()

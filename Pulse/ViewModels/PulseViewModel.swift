@@ -23,7 +23,7 @@ class PulseViewModel : ObservableObject{
             do {
                 let queueResult = try await PulseRepository.queueScan(ioc: ioc, activeScan: activeScan)
                 pendingScans.append(queueResult)
-                qid = queueResult.qid
+                qid = queueResult.qid ?? -1
             }
             catch{
                 print("Failed queueing the scan: \(error)")
@@ -36,12 +36,12 @@ class PulseViewModel : ObservableObject{
             do {
                 let scanResult = try await PulseRepository.retrieveScanResult(qid: qid)
                 
-                if scanResult.status == "done"{
-                    guard let index = pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
+                if scanResult?.status == "done"{
+                    guard let index = pendingScans.firstIndex(where: {$0.qid == scanResult?.qid}) else {
                         return
                     }
                     pendingScans.remove(at: index)
-                    finishedScans.append(scanResult)
+                    finishedScans.append(scanResult!)
                 }
                 
             }

@@ -14,6 +14,10 @@ class RedditViewModel : ObservableObject{
     
     @Published var posts : [RedditPost]?
     
+    @Published var showSheet = false
+    @Published var url = ""
+    
+    
     func getRedditPosts(){
         
         var newPosts : [RedditPost] = []
@@ -29,5 +33,10 @@ class RedditViewModel : ObservableObject{
             }
             posts = newPosts.sorted(by: {$0.data?.created ?? 0.0 > $1.data?.created ?? 0.0})
         }
+    }
+    
+    func showWebView(post : RedditPost){
+        url = "https://www.reddit.com\(String(post.data!.permalink))"
+        showSheet.toggle()
     }
 }

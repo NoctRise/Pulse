@@ -22,7 +22,7 @@ class PulseRepository {
         return try JSONDecoder().decode(ScanResult.self, from: data)
     }
     
-    static func retrieveScanResult(qid : Int) async throws -> ScanResult?{
+    static func retrieveScanResult(qid : Int) async throws -> ScanResult{
         
         guard let url = URL(string:"https://pulsedive.com/api/analyze.php?qid=\(qid)") else {
             throw HTTPError.invalidURL
@@ -30,12 +30,8 @@ class PulseRepository {
         
         let (data, _ ) = try await URLSession.shared.data(from: url)
         
-        do {
+        
            return try JSONDecoder().decode(ScanResult.self, from: data)
-        }
-        catch{
-            return nil
-        }
     }
     
     

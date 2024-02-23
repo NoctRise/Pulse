@@ -17,9 +17,9 @@ struct ThreatDetailView: View {
             
             if let risk = threat.risk{
                 Section("Risk"){
-                    Text(risk)
+                        Text(risk)
+                        .foregroundStyle(getRiskColor(risk: risk))
                 }
-                
             }
             
             if let category = threat.category{
@@ -33,8 +33,6 @@ struct ThreatDetailView: View {
                 Section("Other names"){
                     Text((othernames.joined(separator: " | ")))
                 }
-                
-                
             }
 
             
@@ -55,12 +53,8 @@ struct ThreatDetailView: View {
                     }
                 }
             }
-            
-            
         }
         .navigationTitle(threat.threat!)
-        
-        
     }
 }
 

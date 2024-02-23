@@ -17,5 +17,5 @@ struct Attribute : Codable{
         
   }
    
-    static let dummy = Attribute(port: [], usedProtocol: [], technology: [])
+    static let dummy = Attribute(port: ["80", "443"], usedProtocol: ["HTTP", "HTTPS"], technology: ["Windows"])
 }

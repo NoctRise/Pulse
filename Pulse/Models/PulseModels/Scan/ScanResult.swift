@@ -11,4 +11,6 @@ struct ScanResult : Codable{
     let data : ScanData?
     let success, status : String?
     let qid : Int?
+    
+    static let dummy = ScanResult(data: ScanData.dummy, success: "Success", status: "done", qid: 37373737373737)
 }

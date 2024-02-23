@@ -77,6 +77,7 @@
 		A94C78A42B83A11F00430A54 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = A94C78A32B83A11F00430A54 /* FirebasePerformance */; };
 		A94C78A72B83A18D00430A54 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78A62B83A18D00430A54 /* AuthenticationView.swift */; };
 		A94C78AA2B84959300430A54 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78A92B84959300430A54 /* SettingsView.swift */; };
+		A9CAD90D2B87723D0067D7E7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAD90C2B87723D0067D7E7 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		A94C78752B83A08600430A54 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A94C78A62B83A18D00430A54 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		A94C78A92B84959300430A54 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A9CAD90C2B87723D0067D7E7 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				A94C784A2B7E4EA900430A54 /* WebView.swift */,
+				A9CAD90C2B87723D0067D7E7 /* Util.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				A94C784B2B7E4EA900430A54 /* WebView.swift in Sources */,
 				A94C78292B7A2E7D00430A54 /* Threat.swift in Sources */,
 				A94C78A72B83A18D00430A54 /* AuthenticationView.swift in Sources */,
+				A9CAD90D2B87723D0067D7E7 /* Util.swift in Sources */,
 				A94C78482B7E379300430A54 /* FeedListItemView.swift in Sources */,
 				A94C78012B738FCC00430A54 /* ContentView.swift in Sources */,
 				A94C781E2B73BE2500430A54 /* PulseViewModel.swift in Sources */,

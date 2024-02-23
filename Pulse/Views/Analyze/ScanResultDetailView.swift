@@ -9,43 +9,89 @@ import SwiftUI
 
 struct ScanResultDetailView: View {
     var scanResult : ScanResult
+    
+    var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
+    
+    
     var body: some View {
         
         VStack(alignment: .leading){
-            Text("Name: \(scanResult.data?.indicator ?? "")" )
-                .font(.headline)
-            Text("Risklevel: \(scanResult.data?.risk ?? "no value found")")
             
-            if let riskFactors = scanResult.data?.riskfactors{
-                ForEach(riskFactors, id: \.rfid){ riskFactor in
+            
+            ZStack{
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.white)
+                    .shadow(color: getRiskColor(risk: scanResult.data?.risk ?? ""), radius: 5)
+                    .frame(maxHeight: 100)
+                VStack{
+                    Text(scanResult.data?.indicator ?? "")
+                        .font(.title)
+                    
                     HStack{
-                        Text(riskFactor.description)
-                        Text(riskFactor.risk)
-                            .font(.subheadline)
+                        Text("Risklevel: ")
+                        Text("\(scanResult.data?.risk ?? "no value found")")
+                            .foregroundStyle(getRiskColor(risk: scanResult.data?.risk ?? ""))
                     }
                 }
-            }
-            if let ports = scanResult.data?.attributes.port{
-                HStack{
-                    ForEach(ports, id: \.self){ port in
-                     Text("\(port) ")
-                    }
-                }
-            }
+            }.padding(.bottom)
             
-            if let protocols = scanResult.data?.attributes.usedProtocol{
-                HStack{
-                    ForEach(protocols, id: \.self){ proto in
-                     Text("\(proto) ")
+            
+            List{
+                if let riskFactors = scanResult.data?.riskfactors{
+                    Section("Risk factors") {
+                        ForEach(riskFactors, id: \.rfid){ riskFactor in
+                            HStack{
+                                Text(riskFactor.description)
+                                Text(riskFactor.risk)
+                                    .font(.subheadline)
+                                    .foregroundStyle(getRiskColor(risk: riskFactor.risk))
+                            }
+                        }
+                    }
+                }
+                if let ports = scanResult.data?.attributes.port{
+                    Section("Ports") {
+                        HStack{
+                            ForEach(ports, id: \.self){ port in
+                                Text("\(port) ")
+                            }
+                        }
+                    }
+                }
+                
+                if let protocols = scanResult.data?.attributes.usedProtocol{
+                    Section("Protocols") {
+                        HStack{
+                            ForEach(protocols, id: \.self){ proto in
+                                Text("\(proto) ")
+                                    .padding(.horizontal, 2)
+                            }
+                        }
+                    }
+                }
+                
+                
+                if let technology = scanResult.data?.attributes.technology{
+                    Section("Technology") {
+    
+                        LazyVGrid(columns: gridItemLayout){
+                            ForEach(technology, id: \.self){ tech in
+                                Text("\(tech) ")
+                            }
+                        }
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .listStyle(.grouped)
             
+            Spacer()
         }
-        
+        .padding(.horizontal)
     }
 }
 
 #Preview {
-    ScanResultDetailView(scanResult: ScanResult(data: nil, success: "success", status: "finished", qid: 213123123))
+    ScanResultDetailView(scanResult: ScanResult.dummy)
 }

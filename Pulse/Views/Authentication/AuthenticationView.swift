@@ -18,24 +18,32 @@ struct AuthenticationView: View {
     
     var body: some View {
         VStack{
+            
+            Image("Logo")
+                .resizable()
+                .frame(maxWidth: 250, maxHeight: 200)
             TextField("Email", text: $email)
                 .textInputAutocapitalization(.never)
+                .textFieldStyle(.roundedBorder)
+            
             SecureField("Passwort", text: $password)
-            Spacer()
+                .textFieldStyle(.roundedBorder)
             Button{
                 loginState ? userViewModel.login(email: email, password: password) : userViewModel.register(email: email, password: password)
             } label : {
                 Text(loginState ? "Login" : "Register")
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: .infinity)
             }
-            .padding()
             .disabled(disableButton)
             .buttonStyle(.borderedProminent)
+            .padding(.bottom)
             
             Button(loginState ? "No account? Sign up here" : "Already got an account? Login here"){
                 loginState.toggle()
-            }
+            } 
+            
         }
+        .padding()
     }
 }
 

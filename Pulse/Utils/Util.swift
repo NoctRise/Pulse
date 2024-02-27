@@ -14,6 +14,7 @@ func getRiskColor(risk : String) -> Color{
     case "medium" : return Color.orange
     case "low": return Color.yellow
     case "none": return  Color.green
+    case "unknown" : return Color.gray
     default: return Color.black
     }
 }

@@ -22,7 +22,7 @@ struct ScanResultDetailView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .fill(.white)
-                    .shadow(color: getRiskColor(risk: scanResult.data?.risk ?? ""), radius: 5)
+                    .shadow(color: .gray , radius: 3)
                     .frame(maxHeight: 100)
                 VStack{
                     Text(scanResult.data?.indicator ?? "")
@@ -50,7 +50,8 @@ struct ScanResultDetailView: View {
                         }
                     }
                 }
-                if let ports = scanResult.data?.attributes.port{
+                
+                if let ports = scanResult.data?.attributes?.port{
                     Section("Ports") {
                         HStack{
                             ForEach(ports, id: \.self){ port in
@@ -60,7 +61,7 @@ struct ScanResultDetailView: View {
                     }
                 }
                 
-                if let protocols = scanResult.data?.attributes.usedProtocol{
+                if let protocols = scanResult.data?.attributes?.usedProtocol{
                     Section("Protocols") {
                         HStack{
                             ForEach(protocols, id: \.self){ proto in
@@ -71,8 +72,7 @@ struct ScanResultDetailView: View {
                     }
                 }
                 
-                
-                if let technology = scanResult.data?.attributes.technology{
+                if let technology = scanResult.data?.attributes?.technology{
                     Section("Technology") {
     
                         LazyVGrid(columns: gridItemLayout){
@@ -83,6 +83,7 @@ struct ScanResultDetailView: View {
                     }
                 }
             }
+            .scrollIndicators(.hidden)
             .scrollContentBackground(.hidden)
             .listStyle(.grouped)
             

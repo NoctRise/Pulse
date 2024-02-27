@@ -18,7 +18,8 @@ struct ThreatListItemView: View {
             NavigationLink(destination: ThreatDetailView(threat: threat)){
                 HStack{
                     if let risk = threat.risk{
-                        Text("Risk: \(risk)")
+                        Image(systemName: "circle.fill")
+                            .foregroundStyle(getRiskColor(risk: risk))
                     }
                     
                     VStack(alignment: .leading){

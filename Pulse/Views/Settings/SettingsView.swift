@@ -11,7 +11,20 @@ struct SettingsView: View {
     @EnvironmentObject var userViewModel : UserViewModel
     var body: some View {
         List{
-            
+            Section{
+                NavigationLink("Change password"){
+                    // TODO
+                }
+                
+                NavigationLink("Edit feeds"){
+                    // TODO
+                }
+                
+                Button("Delete account"){
+                    //
+                }
+            }
+
             Button("Log out", role: .destructive){
                 userViewModel.logout()
             }

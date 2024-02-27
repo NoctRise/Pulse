@@ -32,23 +32,32 @@ class PulseViewModel : ObservableObject{
     
     
     func retrieveScanResult(){
-        Task {
-            do {
-                let scanResult = try await PulseRepository.retrieveScanResult(qid: qid)
-                
-                if scanResult.status == "done"{
-                    guard let index = pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
-                        return
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
+            print("Retrieve Scanresult")
+            Task {
+                do {
+                    let scanResult = try await PulseRepository.retrieveScanResult(qid: self.qid)
+                    
+                    if scanResult.status == "done"{
+                        guard let index = await self.pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
+                            return
+                        }
+                        self.pendingScans.remove(at: index)
+                        self.finishedScans.append(scanResult)
+                        timer.invalidate()
+                        print("timer terminated")
                     }
-                    pendingScans.remove(at: index)
-                    finishedScans.append(scanResult)
+                    
                 }
-                
+                catch{
+                    print("Failed retrieving scan results: \(error)")
+                }
             }
-            catch{
-                print("Failed retrieving scan results: \(error)")
-            }
-        }
+            })
+        
+        
     }
     
     func getThreatDetails(threatName : String){

@@ -57,6 +57,7 @@ struct AnalyzeView: View {
                 .buttonStyle(.borderedProminent)
                 
                 if(!pulseViewModel.pendingScans.isEmpty){
+                    Divider()
                     Text("Current Scans")
                         .font(.headline)
                 
@@ -70,6 +71,7 @@ struct AnalyzeView: View {
                         }
                 }
                 if(!pulseViewModel.finishedScans.isEmpty){
+                    Divider()
                     Text("Finished Scans")
                         .font(.headline)
                     List(pulseViewModel.finishedScans, id: \.qid){ scan in

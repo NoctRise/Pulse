@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */; };
 		A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C77FE2B738FCC00430A54 /* PulseApp.swift */; };
 		A94C78012B738FCC00430A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78002B738FCC00430A54 /* ContentView.swift */; };
 		A94C78032B738FCD00430A54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94C78022B738FCD00430A54 /* Assets.xcassets */; };
@@ -81,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultThreat.swift; sourceTree = "<group>"; };
 		A94C77FB2B738FCC00430A54 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94C77FE2B738FCC00430A54 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
 		A94C78002B738FCC00430A54 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				A94C781F2B73C36C00430A54 /* ScanData.swift */,
 				A94C78212B73C51100430A54 /* RiskFactor.swift */,
 				A94C78232B73C62600430A54 /* Attribute.swift */,
+				A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */,
 			);
 			path = Scan;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				A94C78102B73907800430A54 /* AnalyzeView.swift in Sources */,
 				A94C78732B83A03E00430A54 /* FireUser.swift in Sources */,
 				A94C78122B73909200430A54 /* ExploreView.swift in Sources */,
+				A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */,
 				A94C78332B7E1FE300430A54 /* RedditRepository.swift in Sources */,
 				A94C783F2B7E31D400430A54 /* RedditViewModel.swift in Sources */,
 			);

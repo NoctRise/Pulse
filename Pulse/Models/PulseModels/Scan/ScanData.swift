@@ -12,8 +12,9 @@ struct ScanData : Codable{
     let risk : String?
     let riskfactors : [RiskFactor]
     let attributes : Attribute?
-    let threats : [String]
+    let threats : [ScanResultThreat]
     
-    static let dummy = ScanData(indicator: "Dummy Indicator", risk: "very high", riskfactors: [RiskFactor.dummy, RiskFactor.dummy], attributes: Attribute.dummy, threats: ["Dummy Threat", "Dummy Threat 2" ])
+    
+    static let dummy = ScanData(indicator: "Dummy Indicator", risk: "very high", riskfactors: [RiskFactor.dummy, RiskFactor.dummy], attributes: Attribute.dummy, threats: ScanResultThreat.dummy)
 }
 

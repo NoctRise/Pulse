@@ -28,8 +28,9 @@ struct SettingsView: View {
             Button("Log out", role: .destructive){
                 userViewModel.logout()
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .frame(maxWidth: .infinity)
         }
+        .navigationTitle("Settings")
     }
 }
 

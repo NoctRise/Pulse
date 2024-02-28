@@ -78,11 +78,13 @@ struct ScanResultDetailView: View {
                         LazyVGrid(columns: gridItemLayout){
                             ForEach(technology, id: \.self){ tech in
                                 Text("\(tech) ")
+                                    .multilineTextAlignment(.center)
                             }
                         }
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .scrollIndicators(.hidden)
             .scrollContentBackground(.hidden)
             .listStyle(.grouped)

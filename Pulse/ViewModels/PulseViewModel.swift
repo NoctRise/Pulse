@@ -33,7 +33,6 @@ class PulseViewModel : ObservableObject{
     
     func retrieveScanResult(){
         
-        
         Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
             print("Retrieve Scanresult")
             Task {
@@ -44,20 +43,19 @@ class PulseViewModel : ObservableObject{
                         guard let index = await self.pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
                             return
                         }
-                        self.pendingScans.remove(at: index)
-                        self.finishedScans.append(scanResult)
+                        DispatchQueue.main.async {
+                            self.pendingScans.remove(at: index)
+                            self.finishedScans.append(scanResult)
+                        }
                         timer.invalidate()
                         print("timer terminated")
                     }
-                    
                 }
                 catch{
                     print("Failed retrieving scan results: \(error)")
                 }
             }
             })
-        
-        
     }
     
     func getThreatDetails(threatName : String){
@@ -72,5 +70,4 @@ class PulseViewModel : ObservableObject{
             showLoadingIndicator = false
         }
     }
-    
 }

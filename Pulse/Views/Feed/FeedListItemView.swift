@@ -8,36 +8,40 @@
 import SwiftUI
 
 struct FeedListItemView: View {
-    var post : RedditPost
+    var article : Item
     var body: some View {
         
         HStack(alignment: .top){
-                Image("redditLogo")
-                    .resizable()
-                    .frame(width: 30, height: 30)
+//                Image("redditLogo")
+//                    .resizable()
+//                    .frame(width: 30, height: 30)
                 
                 VStack(alignment: .leading){
-                if let title = post.data?.title {
+                    if let title = article.title  {
                     Text(title)
                         .bold()
                         .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 }
-                    if let subreddit = post.data?.subreddit_name_prefixed{
-                        Text(subreddit)
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
-                    }
                     
                     HStack{
-                        if let author = post.data?.author{
+                        if let author = article.author{
                             Text("submitted by \(author) ")
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.subheadline)
+                        }
+                        else if let creator = article.creator{
+                        Text("submitted by \(creator) ")
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.subheadline)
                         }
                     }
-                    
+              
+                    Text(article.pubDate ?? "-")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
             }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding([.top, .horizontal])
     
@@ -45,5 +49,5 @@ struct FeedListItemView: View {
 }
 
 #Preview {
-    FeedListItemView(post : RedditPost(data: (RedditPostData.dummy)))
+    FeedListItemView(article : Item.dummy)
 }

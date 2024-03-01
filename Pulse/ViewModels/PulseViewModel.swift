@@ -7,7 +7,7 @@
 
 import Foundation
 
-@MainActor
+
 class PulseViewModel : ObservableObject{
     
     @Published var pendingScans : [ScanResult] = []
@@ -33,29 +33,37 @@ class PulseViewModel : ObservableObject{
     
     func retrieveScanResult(){
         
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
+//        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
+        
+
             print("Retrieve Scanresult")
             Task {
+                while true {
                 do {
                     let scanResult = try await PulseRepository.retrieveScanResult(qid: self.qid)
                     
                     if scanResult.status == "done"{
-                        guard let index = await self.pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
+                        guard let index =  self.pendingScans.firstIndex(where: {$0.qid == scanResult.qid}) else {
                             return
                         }
                         DispatchQueue.main.async {
                             self.pendingScans.remove(at: index)
                             self.finishedScans.append(scanResult)
                         }
-                        timer.invalidate()
+//                        timer.invalidate()
+                        
                         print("timer terminated")
+                        break
                     }
                 }
                 catch{
                     print("Failed retrieving scan results: \(error)")
                 }
+                    try await Task.sleep(for: .seconds(10))
             }
-            })
+            
+        }
+//            })
     }
     
     func getThreatDetails(threatName : String){

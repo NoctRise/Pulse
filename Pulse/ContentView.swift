@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var pulseViewModel = PulseViewModel()
-    @StateObject var redditViewModel = RedditViewModel()
+    
     var body: some View {
         
             TabView{
-                CommunityFeedView()
+                RSSFeed()
                     .tabItem {
                         Label("Feed", systemImage:"newspaper")
                     }
@@ -28,7 +28,7 @@ struct ContentView: View {
                         Label("Explore", systemImage: "eye")
                     }
             }
-            .environmentObject(redditViewModel)
+            
             .environmentObject(pulseViewModel)
     }
 }

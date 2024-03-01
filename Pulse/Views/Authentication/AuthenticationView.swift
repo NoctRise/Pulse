@@ -21,7 +21,8 @@ struct AuthenticationView: View {
             
             Image("Logo")
                 .resizable()
-                .frame(maxWidth: 250, maxHeight: 200)
+                .frame(maxWidth: 225, maxHeight: 60)
+                .padding()
             TextField("Email", text: $email)
                 .textInputAutocapitalization(.never)
                 .textFieldStyle(.roundedBorder)

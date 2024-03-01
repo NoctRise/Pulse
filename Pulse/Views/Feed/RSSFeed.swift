@@ -1,24 +1,26 @@
 //
-//  CommunityFeedView.swift
+//  RSSFeed.swift
 //  Pulse
 //
-//  Created by Andi on 07.02.24.
+//  Created by Andi on 29.02.24.
 //
 
 import SwiftUI
 
-struct CommunityFeedView: View {
-    @EnvironmentObject var redditViewModel : RedditViewModel
+struct RSSFeed: View {
+    @ObservedObject var viewModel = RSSViewModel()
     
     var body: some View {
         
         NavigationStack{
             ScrollView{
-                if let posts = redditViewModel.posts{
-                    ForEach(posts, id: \.data?.id){ post in
-                        FeedListItemView(post: post)
+                if let feed = viewModel.feed{
+                    ForEach(feed, id: \.link){ article in
+                        FeedListItemView(article: article)
                             .onTapGesture {
-                                redditViewModel.showWebView(post: post)
+                                if let link = article.link{
+                                    viewModel.showWebView(url: link)
+                                }
                             }
                     }
                 }
@@ -34,27 +36,26 @@ struct CommunityFeedView: View {
                 }
             }
             .scrollIndicators(.never)
-            .sheet(isPresented: $redditViewModel.showSheet, content: {
+            .sheet(isPresented: $viewModel.showWebView, content: {
                 VStack{
                     HStack{
-                        Button("", systemImage: "xmark", action: {redditViewModel.showSheet.toggle()})
+                        Button("", systemImage: "xmark", action: {viewModel.showWebView.toggle()})
                             .padding()
                     }
                     .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
                     
-                    WebView(url: URL(string: redditViewModel.url)!)
+                    WebView(url: URL(string: viewModel.url)!)
                 }
             })
             .navigationTitle("Community feed")
         }
         
         .refreshable {
-            redditViewModel.getRedditPosts()
+            viewModel.getRSSFeed()
         }
     }
 }
 
 #Preview {
-    CommunityFeedView()
-        .environmentObject(RedditViewModel())
+    RSSFeed()
 }

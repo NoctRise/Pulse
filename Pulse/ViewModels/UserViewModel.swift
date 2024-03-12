@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseAuth
-
+import FirebaseFirestore
 
 class UserViewModel : ObservableObject{
     
@@ -17,6 +17,8 @@ class UserViewModel : ObservableObject{
     var userIsLoggedIn : Bool{
         user != nil
     }
+    
+    private var listener : ListenerRegistration?
     
     init() {
         checkAuth()
@@ -32,7 +34,7 @@ class UserViewModel : ObservableObject{
     }
     
     func createUser(id : String,email : String){
-        let user = FireUser(id: id, email: email, registeredAt: Date())
+        let user = FireUser(id: id, email: email, registeredAt: Date(), favorites: [])
         
         do {
             try firebaseManager.database.collection("users").document(id).setData(from:user)
@@ -42,27 +44,53 @@ class UserViewModel : ObservableObject{
         }
     }
     
-    func fetchUser(id : String){
-        firebaseManager.database.collection("users").document(id).getDocument{ document, error in
-            if let error{
-                print("Fetching user failed: \(error.localizedDescription)")
-                return
+//    func fetchUser(id : String){
+//        firebaseManager.database.collection("users").document(id).getDocument{ document, error in
+//            if let error{
+//                print("Fetching user failed: \(error.localizedDescription)")
+//                return
+//            }
+//            
+//            guard let document else {
+//                print("No Document found.")
+//                return
+//            }
+//            
+//            do {
+//                let user = try document.data(as: FireUser.self)
+//                self.user = user
+//            }
+//            catch {
+//                print("Document is not a user. \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
+    private func fetchUser(id: String){
+          let userRef = firebaseManager.database.collection("users").document(id)
+          listener = userRef.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+              print("Error fetching document: \(error!)")
+              return
             }
-            
-            guard let document else {
-                print("No Document found.")
-                return
+            guard let user = try? document.data(as: FireUser.self) else {
+              print("Document does not exist")
+              return
             }
-            
-            do {
-                let user = try document.data(as: FireUser.self)
-                self.user = user
-            }
-            catch {
-                print("Document is not a user. \(error.localizedDescription)")
-            }
+            self.user = user
+          }
         }
-    }
+
+
+
+
+
+
+
+
+
+
+    
     
     
     func login (email : String, password: String){

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A904B9B42B9F43C900820AE5 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B32B9F43C900820AE5 /* FavoriteView.swift */; };
 		A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */; };
 		A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C77FE2B738FCC00430A54 /* PulseApp.swift */; };
 		A94C78012B738FCC00430A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78002B738FCC00430A54 /* ContentView.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A904B9B32B9F43C900820AE5 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultThreat.swift; sourceTree = "<group>"; };
 		A94C77FB2B738FCC00430A54 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94C77FE2B738FCC00430A54 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A904B9B22B9F437400820AE5 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				A904B9B32B9F43C900820AE5 /* FavoriteView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		A94C77F22B738FCC00430A54 = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +236,7 @@
 		A94C780C2B73904500430A54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A904B9B22B9F437400820AE5 /* Favorites */,
 				A94C78A82B84958500430A54 /* Settings */,
 				A94C78A52B83A14800430A54 /* Authentication */,
 				A94C78462B7E375700430A54 /* Analyze */,
@@ -526,6 +537,7 @@
 				A94C78152B73B76600430A54 /* PulseRepository.swift in Sources */,
 				A94C78202B73C36C00430A54 /* ScanData.swift in Sources */,
 				A99EBB4A2B90B18E00F0B699 /* Channel.swift in Sources */,
+				A904B9B42B9F43C900820AE5 /* FavoriteView.swift in Sources */,
 				A94C782B2B7A648F00430A54 /* ThreatListItemView.swift in Sources */,
 				A94C78262B75126D00430A54 /* ScanResultDetailView.swift in Sources */,
 				A94C78222B73C51100430A54 /* RiskFactor.swift in Sources */,

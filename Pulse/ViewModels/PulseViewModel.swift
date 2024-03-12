@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+@MainActor
 class PulseViewModel : ObservableObject{
     
     @Published var pendingScans : [ScanResult] = []
@@ -22,7 +22,10 @@ class PulseViewModel : ObservableObject{
         Task {
             do {
                 let queueResult = try await PulseRepository.queueScan(ioc: ioc, activeScan: activeScan)
-                pendingScans.append(queueResult)
+                
+                DispatchQueue.main.async{
+                    self.pendingScans.append(queueResult)
+                }
                 qid = queueResult.qid ?? -1
             }
             catch{
@@ -32,10 +35,7 @@ class PulseViewModel : ObservableObject{
     
     
     func retrieveScanResult(){
-        
-//        Timer.scheduledTimer(withTimeInterval: 10, repeats: true, block: { timer in
-        
-
+    
             print("Retrieve Scanresult")
             Task {
                 while true {
@@ -50,7 +50,6 @@ class PulseViewModel : ObservableObject{
                             self.pendingScans.remove(at: index)
                             self.finishedScans.append(scanResult)
                         }
-//                        timer.invalidate()
                         
                         print("timer terminated")
                         break
@@ -61,21 +60,20 @@ class PulseViewModel : ObservableObject{
                 }
                     try await Task.sleep(for: .seconds(10))
             }
-            
         }
-//            })
     }
     
     func getThreatDetails(threatName : String){
+        self.showLoadingIndicator = true
         Task {
             do {
-                showLoadingIndicator = true
                 threat = try await PulseRepository.getThreatDetails(threatName: threatName)
+                showLoadingIndicator = false
             }
             catch {
                 print("Failed getting threat details: \(error)")
             }
-            showLoadingIndicator = false
+            
         }
     }
 }

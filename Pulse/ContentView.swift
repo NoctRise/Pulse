@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var pulseViewModel = PulseViewModel()
+    @StateObject var rssViewModel = RSSViewModel()
     
     var body: some View {
         
@@ -17,6 +18,14 @@ struct ContentView: View {
                     .tabItem {
                         Label("Feed", systemImage:"newspaper")
                     }
+                
+                if rssViewModel.favorites.count > 0 {
+                    FavoriteView()
+                        .tabItem {
+                            Label("Favorite", systemImage:"heart.fill")
+                        }
+                        .badge(rssViewModel.favorites.count)
+                }
                 
                 AnalyzeView()
                     .tabItem {
@@ -30,6 +39,7 @@ struct ContentView: View {
             }
             
             .environmentObject(pulseViewModel)
+            .environmentObject(rssViewModel)
     }
 }
 

@@ -12,9 +12,6 @@ struct FeedListItemView: View {
     var body: some View {
         
         HStack(alignment: .top){
-//                Image("redditLogo")
-//                    .resizable()
-//                    .frame(width: 30, height: 30)
                 
                 VStack(alignment: .leading){
                     if let title = article.title  {
@@ -43,7 +40,7 @@ struct FeedListItemView: View {
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding([.top, .horizontal])
+        
     
     }
 }

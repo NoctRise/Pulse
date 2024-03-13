@@ -12,4 +12,5 @@ struct FireUser : Codable{
     var email : String
     let registeredAt : Date
     var favorites : [Item]
+    var feeds : [String]
 }

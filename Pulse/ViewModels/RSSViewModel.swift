@@ -38,7 +38,7 @@ class RSSViewModel : ObservableObject {
             for rssName in rss{
                 do {
                     guard let feed = try await RSSRepository.getRSSFeed(rss: rssName) else {
-                        print("error getting Rss feed")
+                        print("Error getting rss feed")
                         return
                     }
                     
@@ -51,9 +51,6 @@ class RSSViewModel : ObservableObject {
             feed = newFeed.sorted(by: {
                 $0.pubDate ?? "1" > $1.pubDate ?? "2"
             })
-            
-            
-            
         }
     }
     
@@ -118,6 +115,4 @@ class RSSViewModel : ObservableObject {
           }
         }
       }
-    
 }
-

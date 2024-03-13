@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RSSFeed: View {
     @EnvironmentObject  var viewModel : RSSViewModel
-
+    
     
     var body: some View {
         
@@ -19,12 +19,12 @@ struct RSSFeed: View {
                     ForEach(feed, id: \.link){ article in
                         FeedListItemView(article: article)
                             .swipeActions(edge: .trailing) {
-                                           Button {
-                                               viewModel.favoriteArticle(article: article)
-                                           } label: {
-                                               Label("Favorite", systemImage: "heart.fill")
-                                                   .tint(Color.red)
-                                           }
+                                Button {
+                                    viewModel.favoriteArticle(article: article)
+                                } label: {
+                                    Label("Favorite", systemImage: "heart.fill")
+                                        .tint(Color.red)
+                                }
                             }
                             .onTapGesture {
                                 if let link = article.link{
@@ -48,22 +48,32 @@ struct RSSFeed: View {
             
             .listStyle(.plain)
             .toolbar{
+                
+                
+                
+                
+                
+                NavigationLink(destination: SettingsView(), label:
+                                {
                     Image(systemName: "gearshape")
-                    .onTapGesture {
-                        viewModel.showSettings.toggle()
-                    }
+                })
+                //                        viewModel.showSettings.toggle()
+                
             }
             .scrollIndicators(.never)
-            .sheet(isPresented: $viewModel.showSettings){
-                VStack{
-                    HStack{
-                        Button("", systemImage: "xmark", action: {viewModel.showSettings.toggle()})
-                            .padding()
-                    }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-                    SettingsView()
-                }
-                .presentationDetents([.height(350), .medium, .large])
-            }
+            //            .sheet(isPresented: $viewModel.showSettings){
+            //                VStack{
+            //                    HStack{
+            //                        Button("", systemImage: "xmark", action: {viewModel.showSettings.toggle()})
+            //                            .padding()
+            //                    }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+            //                    SettingsView()
+            //                }
+            //                .presentationDetents([.height(350), .medium, .large])
+            //            }
+            
+            
+            
             .sheet(isPresented: $viewModel.showWebView, content: {
                 VStack{
                     HStack{

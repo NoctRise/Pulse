@@ -9,28 +9,32 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var userViewModel : UserViewModel
+    
     var body: some View {
-        List{
-            Section{
-                NavigationLink("Change password"){
-                    // TODO
+        NavigationStack{
+            List{
+                Section{
+                    NavigationLink("Change password"){
+                        // TODO
+                    }
+                    
+                    NavigationLink("Edit feeds"){
+                        
+                        EditFeedView()
+                    }
+                    
+                    Button("Delete account"){
+                        //
+                    }
                 }
-                
-                NavigationLink("Edit feeds"){
-                    // TODO
-                }
-                
-                Button("Delete account"){
-                    //
-                }
-            }
 
-            Button("Log out", role: .destructive){
-                userViewModel.logout()
+                Button("Log out", role: .destructive){
+                    userViewModel.logout()
+                }
+                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity)
+            .navigationTitle("Settings")
         }
-        .navigationTitle("Settings")
     }
 }
 

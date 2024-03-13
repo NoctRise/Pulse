@@ -18,6 +18,15 @@ class UserViewModel : ObservableObject{
         user != nil
     }
     
+    @Published var loginState = true
+    @Published var email = ""
+    @Published var password = ""
+    
+    var disableButton : Bool {
+        email.isEmpty || password.isEmpty
+    }
+    
+    
     private var listener : ListenerRegistration?
     
     init() {
@@ -34,7 +43,7 @@ class UserViewModel : ObservableObject{
     }
     
     func createUser(id : String,email : String){
-        let user = FireUser(id: id, email: email, registeredAt: Date(), favorites: [])
+        let user = FireUser(id: id, email: email, registeredAt: Date(), favorites: [], feeds: ["https://www.bleepingcomputer.com/feed/", "https://www.darkreading.com/rss.xml", "https://www.reddit.com/r/netsec/new/.rss", "https://www.reddit.com/r/blueteamsec/.rss"])
         
         do {
             try firebaseManager.database.collection("users").document(id).setData(from:user)
@@ -43,28 +52,6 @@ class UserViewModel : ObservableObject{
             print("Fehler beim Speichern des Users: \(error)")
         }
     }
-    
-//    func fetchUser(id : String){
-//        firebaseManager.database.collection("users").document(id).getDocument{ document, error in
-//            if let error{
-//                print("Fetching user failed: \(error.localizedDescription)")
-//                return
-//            }
-//            
-//            guard let document else {
-//                print("No Document found.")
-//                return
-//            }
-//            
-//            do {
-//                let user = try document.data(as: FireUser.self)
-//                self.user = user
-//            }
-//            catch {
-//                print("Document is not a user. \(error.localizedDescription)")
-//            }
-//        }
-//    }
     
     private func fetchUser(id: String){
           let userRef = firebaseManager.database.collection("users").document(id)
@@ -80,20 +67,8 @@ class UserViewModel : ObservableObject{
             self.user = user
           }
         }
-
-
-
-
-
-
-
-
-
-
     
-    
-    
-    func login (email : String, password: String){
+    func login (){
         firebaseManager.auth.signIn(withEmail: email, password: password){ authResult, error in
             if let error{
                 print("Login failed: ", error.localizedDescription)
@@ -108,7 +83,7 @@ class UserViewModel : ObservableObject{
         }
     }
     
-    func register(email: String, password: String){
+    func register(){
         firebaseManager.auth.createUser(withEmail: email, password: password){ authResult, error in
             if let error{
                 print("Registration failed: ", error.localizedDescription)
@@ -119,7 +94,7 @@ class UserViewModel : ObservableObject{
             print("User with email \(email) is registered in with id \(authResult.user.uid).")
             
             self.createUser(id: authResult.user.uid, email: email)
-            self.login(email: email, password: password)
+            self.login()
         }
     }
     

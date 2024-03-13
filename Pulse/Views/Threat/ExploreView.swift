@@ -9,31 +9,23 @@ import SwiftUI
 
 struct ExploreView: View {
     
-    @State var threatSearchString = ""
-    @EnvironmentObject var viewModel : PulseViewModel
-    @State var showAlert = false
-    @State var searched = false
+
+    @EnvironmentObject var viewModel : ThreatViewModel
     
     var body: some View {
         
         NavigationStack{
             VStack{
-                TextField("Threatname", text: $threatSearchString)
+                TextField("Threatname", text: $viewModel.threatSearchString)
                     .textFieldStyle(.roundedBorder)
                 Button{
-                    if !threatSearchString.isEmpty{
-                        viewModel.getThreatDetails(threatName: threatSearchString)
-                        threatSearchString = ""
-                        searched = true
-                    }
-                    else{
-                        showAlert = true
-                    }
+                        viewModel.getThreatDetails()
                 }
             label: {
                 Text("Search")
                     .frame(maxWidth: .infinity)
             }
+            .disabled(viewModel.disableButton)
             .buttonStyle(.borderedProminent)
             .navigationTitle("Explore Threats")
                 
@@ -41,11 +33,11 @@ struct ExploreView: View {
                     ThreatListItemView(threat: threat)
                 }
                 else {
-                    if searched && viewModel.threat == nil && !viewModel.showLoadingIndicator {
+                    if viewModel.searched && viewModel.threat == nil && !viewModel.showLoadingIndicator {
                         Text("No result")
                     }
                     else if viewModel.showLoadingIndicator {
-                        ProgressView()
+                        ProgressView("Searching...")
                     }
                     
                 }
@@ -54,13 +46,8 @@ struct ExploreView: View {
             }
             
             .onDisappear {
-                searched = false
-            }
-            
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Error"), message: Text("Please enter some text!"), dismissButton: .default(Text("OK")))
-            }
-            
+                viewModel.searched = false
+            }            
             .textInputAutocapitalization(.never)
             .autocorrectionDisabled()
             .padding()
@@ -71,6 +58,6 @@ struct ExploreView: View {
 
 #Preview {
     ExploreView()
-        .environmentObject(PulseViewModel())
+        .environmentObject(ThreatViewModel())
 }
 

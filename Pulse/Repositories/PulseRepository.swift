@@ -37,9 +37,11 @@ class PulseRepository {
     
     static func getThreatDetails(threatName : String) async throws -> Threat?{
         
+        
         guard let url = URL(string:"https://pulsedive.com/api/info.php?threat=\(threatName)") else {
             throw HTTPError.invalidURL
         }
+        
         
         let (data, response) = try await URLSession.shared.data(from: url)
         

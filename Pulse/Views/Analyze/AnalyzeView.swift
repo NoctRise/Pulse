@@ -8,53 +8,43 @@
 import SwiftUI
 
 struct AnalyzeView: View {
-    @State var searchTerm = ""
-    @State var activeScan = false
-    @EnvironmentObject var pulseViewModel : PulseViewModel
-    @State var showAlert = false
     
-    private var disableButton : Bool {
-        searchTerm.isEmpty
-    }
+    @EnvironmentObject var pulseViewModel : PulseViewModel
     
     var body: some View {
         
         NavigationStack{
             
             VStack{
-                TextField("google.com", text: $searchTerm)
+                TextField("google.com", text: $pulseViewModel.searchTerm)
                     .textFieldStyle(.roundedBorder)
                 
-                Toggle(isOn: $activeScan, label: {
+                Toggle(isOn: $pulseViewModel.activeScan, label: {
                     HStack{
                         Text("Active scan")
                         Button{
-                            showAlert.toggle()
+                            pulseViewModel.showAlert.toggle()
                         } label: {
                             Image(systemName: "questionmark.circle")
                         }
                     }
                     
                 })
-                .alert(isPresented: $showAlert) {
+                .alert(isPresented: $pulseViewModel.showAlert) {
                     Alert(title: Text("Info"), message: Text("Passive scans fetch data without reaching out directly to the indicator, including performing WHOIS and DNS requests. Active scans are more noisy; we'll do a quick port scan and reach out to the indicator with a web browser."), dismissButton: .default(Text("OK")))
                 }
                 
                 Button{
-                    pulseViewModel.queueScan(ioc: searchTerm, activeScan: activeScan)
-                    searchTerm = ""
+                    pulseViewModel.queueScan()
+                    
                 }
             label: {
                 Text("Scan")
                     .frame(maxWidth: .infinity)
             }
-            .disabled(disableButton)
+            .disabled(pulseViewModel.disableButton)
             .buttonStyle(.borderedProminent)
                 
-                Button("Retrieve Result"){
-                    pulseViewModel.retrieveScanResult()
-                }
-                .buttonStyle(.borderedProminent)
                 
                 if(!pulseViewModel.pendingScans.isEmpty){
                     Divider()

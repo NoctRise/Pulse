@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var pulseViewModel = PulseViewModel()
     @StateObject var rssViewModel = RSSViewModel()
+    @StateObject var threatViewModel = ThreatViewModel()
+    @StateObject var settingsViewModel = SettingsViewModel()
     
     var body: some View {
         
@@ -40,6 +42,8 @@ struct ContentView: View {
             
             .environmentObject(pulseViewModel)
             .environmentObject(rssViewModel)
+            .environmentObject(threatViewModel)
+            .environmentObject(settingsViewModel)
     }
 }
 

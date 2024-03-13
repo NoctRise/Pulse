@@ -21,12 +21,12 @@ struct FeedListItemView: View {
                 }
                     
                     HStack{
-                        if let author = article.author{
+                        if let author = article.author, !author.isEmpty{
                             Text("submitted by \(author) ")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.subheadline)
                         }
-                        else if let creator = article.creator{
+                        else if let creator = article.creator, !creator.isEmpty{
                         Text("submitted by \(creator) ")
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.subheadline)

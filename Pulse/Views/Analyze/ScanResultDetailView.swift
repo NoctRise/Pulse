@@ -72,6 +72,20 @@ struct ScanResultDetailView: View {
                     }
                 }
                 
+                if let threats = scanResult.data?.threats{
+                    Section("Threats") {
+                        ForEach(threats, id: \.tid){ threat in
+                        HStack{
+                                Text("\(threat.name ?? "") ")
+                                    .padding(.horizontal, 2)
+                                Text(threat.risk ?? "none")
+                                    .font(.subheadline)
+                                    .foregroundStyle(getRiskColor(risk: threat.risk ?? "none"))
+                            }
+                        }
+                    }
+                }
+                
                 if let technology = scanResult.data?.attributes?.technology{
                     Section("Technology") {
     

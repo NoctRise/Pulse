@@ -13,20 +13,26 @@ class PulseViewModel : ObservableObject{
     @Published var pendingScans : [ScanResult] = []
     @Published var finishedScans: [ScanResult] = []
     private var qid = 0
-    @Published var threat : Threat?
     
-    @Published var showLoadingIndicator = false
+    @Published var searchTerm = ""
+    @Published var activeScan = false
+    @Published var showAlert = false
+    var disableButton : Bool {
+        searchTerm.isEmpty
+    }
     
-    
-    func queueScan(ioc : String, activeScan : Bool){
+    func queueScan(){
         Task {
             do {
-                let queueResult = try await PulseRepository.queueScan(ioc: ioc, activeScan: activeScan)
+                let queueResult = try await PulseRepository.queueScan(ioc: searchTerm, activeScan: activeScan)
                 
                 DispatchQueue.main.async{
                     self.pendingScans.append(queueResult)
                 }
                 qid = queueResult.qid ?? -1
+                retrieveScanResult()
+                
+                searchTerm = ""
             }
             catch{
                 print("Failed queueing the scan: \(error)")
@@ -34,7 +40,7 @@ class PulseViewModel : ObservableObject{
         }}
     
     
-    func retrieveScanResult(){
+    private func retrieveScanResult(){
     
             print("Retrieve Scanresult")
             Task {
@@ -60,20 +66,6 @@ class PulseViewModel : ObservableObject{
                 }
                     try await Task.sleep(for: .seconds(10))
             }
-        }
-    }
-    
-    func getThreatDetails(threatName : String){
-        self.showLoadingIndicator = true
-        Task {
-            do {
-                threat = try await PulseRepository.getThreatDetails(threatName: threatName)
-                showLoadingIndicator = false
-            }
-            catch {
-                print("Failed getting threat details: \(error)")
-            }
-            
         }
     }
 }

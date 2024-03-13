@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A904B9B42B9F43C900820AE5 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B32B9F43C900820AE5 /* FavoriteView.swift */; };
+		A904B9B62BA1AB1600820AE5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B52BA1AB1600820AE5 /* SettingsViewModel.swift */; };
+		A904B9B82BA1B89800820AE5 /* ThreatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */; };
+		A904B9BA2BA1E01300820AE5 /* EditFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B92BA1E01300820AE5 /* EditFeedView.swift */; };
 		A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */; };
 		A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C77FE2B738FCC00430A54 /* PulseApp.swift */; };
 		A94C78012B738FCC00430A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78002B738FCC00430A54 /* ContentView.swift */; };
@@ -90,6 +93,9 @@
 
 /* Begin PBXFileReference section */
 		A904B9B32B9F43C900820AE5 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		A904B9B52BA1AB1600820AE5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatViewModel.swift; sourceTree = "<group>"; };
+		A904B9B92BA1E01300820AE5 /* EditFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFeedView.swift; sourceTree = "<group>"; };
 		A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultThreat.swift; sourceTree = "<group>"; };
 		A94C77FB2B738FCC00430A54 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94C77FE2B738FCC00430A54 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 				A94C781D2B73BE2500430A54 /* PulseViewModel.swift */,
 				A94C78592B839FAC00430A54 /* UserViewModel.swift */,
 				A99EBB402B908CEF00F0B699 /* RSSViewModel.swift */,
+				A904B9B52BA1AB1600820AE5 /* SettingsViewModel.swift */,
+				A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				A94C78A92B84959300430A54 /* SettingsView.swift */,
+				A904B9B92BA1E01300820AE5 /* EditFeedView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -531,9 +540,11 @@
 				A94C78A72B83A18D00430A54 /* AuthenticationView.swift in Sources */,
 				A9CAD90D2B87723D0067D7E7 /* Util.swift in Sources */,
 				A94C78482B7E379300430A54 /* FeedListItemView.swift in Sources */,
+				A904B9B82BA1B89800820AE5 /* ThreatViewModel.swift in Sources */,
 				A94C78012B738FCC00430A54 /* ContentView.swift in Sources */,
 				A94C781E2B73BE2500430A54 /* PulseViewModel.swift in Sources */,
 				A99EBB432B90966500F0B699 /* RSSFeed.swift in Sources */,
+				A904B9B62BA1AB1600820AE5 /* SettingsViewModel.swift in Sources */,
 				A94C78152B73B76600430A54 /* PulseRepository.swift in Sources */,
 				A94C78202B73C36C00430A54 /* ScanData.swift in Sources */,
 				A99EBB4A2B90B18E00F0B699 /* Channel.swift in Sources */,
@@ -543,6 +554,7 @@
 				A94C78222B73C51100430A54 /* RiskFactor.swift in Sources */,
 				A99EBB4C2B90B1D400F0B699 /* Item.swift in Sources */,
 				A94C78242B73C62600430A54 /* Attribute.swift in Sources */,
+				A904B9BA2BA1E01300820AE5 /* EditFeedView.swift in Sources */,
 				A99EBB452B90A1B900F0B699 /* EntryLink.swift in Sources */,
 				A94C78312B7B9F4D00430A54 /* ThreatDetailView.swift in Sources */,
 				A99EBB3A2B908B0600F0B699 /* Author.swift in Sources */,

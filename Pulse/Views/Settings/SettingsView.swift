@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var userViewModel : UserViewModel
+    @EnvironmentObject var settingsViewModel : SettingsViewModel
     
     var body: some View {
         NavigationStack{
@@ -24,21 +25,27 @@ struct SettingsView: View {
                     }
                     
                     Button("Delete account"){
-                        //
+                        settingsViewModel.deleteConfirmationAlert.toggle()
                     }
                 }
-
+                
                 Button("Log out", role: .destructive){
                     userViewModel.logout()
                 }
                 .frame(maxWidth: .infinity)
             }
-            .navigationTitle("Settings")
+            .alert("Delete Account?", isPresented: $settingsViewModel.deleteConfirmationAlert){
+                Button("Yes", action: settingsViewModel.deleteUserData)
+                Button("Cancel", role: .cancel) { }
+            }
         }
+        .navigationTitle("Settings")
     }
 }
+
 
 #Preview {
     SettingsView()
         .environmentObject(UserViewModel())
+        .environmentObject(SettingsViewModel())
 }

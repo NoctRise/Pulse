@@ -19,9 +19,7 @@ struct RSSRepository{
         let (data, _ ) = try await URLSession.shared.data(from: url)
         
         var itemList : [Item]? = []
-        
-        
-            print(rss)
+
         itemList = try XMLDecoder().decode(RSS.self, from: data).channel?.item
         
         

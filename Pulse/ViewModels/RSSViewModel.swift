@@ -13,21 +13,25 @@ class RSSViewModel : ObservableObject {
     
     private let firebaseManager = FirebaseManager.shared
     
-    
-    private var rss = ["https://www.bleepingcomputer.com/feed/", "https://www.darkreading.com/rss.xml", "https://www.reddit.com/r/netsec/new/.rss", "https://www.reddit.com/r/blueteamsec/.rss"]
-    
     @Published var feed : [Item]?
     
     @Published var showWebView = false
     @Published var url = ""
     @Published var showSettings = false
+    @Published var showLoadingScreen = false
     
     @Published var favorites : [Item] = []
+    
     
     private var listener : ListenerRegistration?
     
     init(){
-        getRSSFeed()
+        self.showLoadingScreen = true
+        Task{
+            try await Task.sleep(for: .seconds(1))
+            getRSSFeed()
+            self.showLoadingScreen = false
+        }
         fetchFavoriteList()
     }
     
@@ -35,7 +39,7 @@ class RSSViewModel : ObservableObject {
         
         var newFeed : [Item] = []
         Task {
-            for rssName in rss{
+            for rssName in SettingsViewModel.shared.feeds{
                 do {
                     guard let feed = try await RSSRepository.getRSSFeed(rss: rssName) else {
                         print("Error getting rss feed")

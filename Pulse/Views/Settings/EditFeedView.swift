@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditFeedView: View {
     @EnvironmentObject var settingsViewModel : SettingsViewModel
+    
     var body: some View {
         NavigationStack{
             List{
@@ -29,17 +30,17 @@ struct EditFeedView: View {
             
                 .toolbar{
                     Button{
-                        settingsViewModel.showSheet.toggle()
+                        settingsViewModel.showAlert.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
-                }
-
-                .alert("Add new feed",isPresented: $settingsViewModel.showSheet) {
+                }            
+                .alert("Add new feed",isPresented: $settingsViewModel.showAlert) {
                     TextField("Feed URL", text: $settingsViewModel.feedURL)
                                     .textInputAutocapitalization(.never)
                                 
-                    Button("OK", action: {settingsViewModel.addFeed()})
+                    Button("OK", action: {settingsViewModel.addFeed()
+                    })
                     Button("Cancel", role: .cancel) { }
                     }
                 

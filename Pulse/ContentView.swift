@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var pulseViewModel = PulseViewModel()
-    @StateObject var rssViewModel = RSSViewModel()
+    @StateObject var settingsViewModel : SettingsViewModel = .shared
     @StateObject var threatViewModel = ThreatViewModel()
-    @StateObject var settingsViewModel = SettingsViewModel()
+    @StateObject var rssViewModel = RSSViewModel()
     
     var body: some View {
         

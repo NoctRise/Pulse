@@ -14,65 +14,56 @@ struct RSSFeed: View {
     var body: some View {
         
         NavigationStack{
-            List{
-                if let feed = viewModel.feed, !(viewModel.feed?.isEmpty ?? true){
-                    ForEach(feed, id: \.link){ article in
-                        FeedListItemView(article: article)
-                            .swipeActions(edge: .trailing) {
-                                Button {
-                                    viewModel.favoriteArticle(article: article)
-                                } label: {
-                                    Label("Favorite", systemImage: "heart.fill")
-                                        .tint(Color.red)
-                                }
-                            }
-                            .onTapGesture {
-                                if let link = article.link{
-                                    viewModel.showWebView(url: link)
-                                }
-                            }
-                    }
-                }
-                else {
-                    VStack{
-                        Text("Pull to refresh feed.")
-                        Spacer()
-                        Image(systemName: "chevron.down")
-                    }
-                    .listRowSeparator(.hidden)
-                    .frame(maxWidth: .infinity, alignment: .center)
+            
+            VStack{
+                
+                if viewModel.showLoadingScreen {
+                    ProgressView()
+                } else {
                     
+                        if let feed = viewModel.feed, !(viewModel.feed?.isEmpty ?? true){
+                            List{
+                            ForEach(feed, id: \.link){ article in
+                                FeedListItemView(article: article)
+                                    .swipeActions(edge: .trailing) {
+                                        Button {
+                                            viewModel.favoriteArticle(article: article)
+                                        } label: {
+                                            Label("Favorite", systemImage: "heart.fill")
+                                                .tint(Color.red)
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        if let link = article.link{
+                                            viewModel.showWebView(url: link)
+                                        }
+                                    }
+                            }
+                            
+                        }
+                            .refreshable {viewModel.getRSSFeed()}
+                            .listRowSeparator(.hidden)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity ,alignment: .center)
+                    }
                     
+                    if SettingsViewModel.shared.feeds.count ==  0 {
+                            Text("Add feeds in the settings")
+                    }
                 }
             }
             
+            .onChange(of : SettingsViewModel.shared.feeds){
+                viewModel.getRSSFeed()
+            }
             .listStyle(.plain)
             .toolbar{
-                
-                
-                
-                
                 
                 NavigationLink(destination: SettingsView(), label:
                                 {
                     Image(systemName: "gearshape")
                 })
-                //                        viewModel.showSettings.toggle()
-                
             }
             .scrollIndicators(.never)
-            //            .sheet(isPresented: $viewModel.showSettings){
-            //                VStack{
-            //                    HStack{
-            //                        Button("", systemImage: "xmark", action: {viewModel.showSettings.toggle()})
-            //                            .padding()
-            //                    }.frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
-            //                    SettingsView()
-            //                }
-            //                .presentationDetents([.height(350), .medium, .large])
-            //            }
-            
-            
             
             .sheet(isPresented: $viewModel.showWebView, content: {
                 VStack{
@@ -80,17 +71,13 @@ struct RSSFeed: View {
                         Button("", systemImage: "xmark", action: {viewModel.showWebView.toggle()})
                             .padding()
                     }
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                     
                     WebView(url: URL(string: viewModel.url)!)
                 }
             })
             
             .navigationTitle("Feed")
-        }
-        
-        .refreshable {
-            viewModel.getRSSFeed()
         }
     }
 }

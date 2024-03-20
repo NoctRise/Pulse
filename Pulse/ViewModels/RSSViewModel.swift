@@ -49,7 +49,7 @@ class RSSViewModel : ObservableObject {
                     newFeed.append(contentsOf: feed)
                 }
                 catch{
-                    print("Failed getting getting rss feed: \(error)")
+                    print("Error getting rss feed: \(error)")
                 }
             }
             feed = newFeed.sorted(by: {

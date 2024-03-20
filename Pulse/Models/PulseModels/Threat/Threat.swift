@@ -12,8 +12,9 @@ struct Threat : Codable{
     let threat, category, risk, description : String?
     let othernames : [String]?
     let attributes : [String : [String]]?
+    let wikisummary : String?
     
-    static let dummy = Threat(tid: 1, threat: "Dummy Threat", category: "Dummy Cat",risk: "Very high", description: "description ---", othernames: [], attributes: [:], error: nil )
+    static let dummy = Threat(tid: 1, threat: "Dummy Threat", category: "Dummy Cat",risk: "Very high", description: nil , othernames: [], attributes: [:], wikisummary: "Wikisummary", error: nil )
     
     let error : String?
 }

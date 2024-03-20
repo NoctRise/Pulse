@@ -53,9 +53,13 @@ class SettingsViewModel : ObservableObject{
         if !feeds.contains(where: {$0 == feedURL}) && !feedURL.isEmpty
         {
             feeds.append(feedURL)
-            feedURL = ""
             updateFeedList()
         }
+        clearFeedURL()
+    }
+    
+    func clearFeedURL(){
+        feedURL = ""
     }
     
     func deleteFeed(feed : String){

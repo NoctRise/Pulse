@@ -47,7 +47,10 @@ struct RSSFeed: View {
                     }
                     
                     if SettingsViewModel.shared.feeds.count ==  0 {
-                            Text("Add feeds in the settings")
+                        Image(systemName: "newspaper")
+                            .resizable()
+                            .frame(maxWidth: 100, maxHeight: 100)
+                        Text("Add feeds in the settings")
                     }
                 }
             }

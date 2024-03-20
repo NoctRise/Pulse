@@ -11,6 +11,7 @@
 		A904B9B62BA1AB1600820AE5 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B52BA1AB1600820AE5 /* SettingsViewModel.swift */; };
 		A904B9B82BA1B89800820AE5 /* ThreatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */; };
 		A904B9BA2BA1E01300820AE5 /* EditFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B92BA1E01300820AE5 /* EditFeedView.swift */; };
+		A9112D882BA99F8C00B3C508 /* PulseAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9112D872BA99F8C00B3C508 /* PulseAPIKey.swift */; };
 		A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */; };
 		A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C77FE2B738FCC00430A54 /* PulseApp.swift */; };
 		A94C78012B738FCC00430A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78002B738FCC00430A54 /* ContentView.swift */; };
@@ -96,6 +97,7 @@
 		A904B9B52BA1AB1600820AE5 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatViewModel.swift; sourceTree = "<group>"; };
 		A904B9B92BA1E01300820AE5 /* EditFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFeedView.swift; sourceTree = "<group>"; };
+		A9112D872BA99F8C00B3C508 /* PulseAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAPIKey.swift; sourceTree = "<group>"; };
 		A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultThreat.swift; sourceTree = "<group>"; };
 		A94C77FB2B738FCC00430A54 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94C77FE2B738FCC00430A54 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		A9112D862BA99F7C00B3C508 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				A9112D872BA99F8C00B3C508 /* PulseAPIKey.swift */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
 		A94C77F22B738FCC00430A54 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 		A94C77FD2B738FCC00430A54 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A9112D862BA99F7C00B3C508 /* Keys */,
 				A94C78742B83A07800430A54 /* Managers */,
 				A94C784C2B839D6C00430A54 /* GoogleService-Info.plist */,
 				A94C78492B7E4E9F00430A54 /* Utils */,
@@ -530,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9112D882BA99F8C00B3C508 /* PulseAPIKey.swift in Sources */,
 				A99EBB3F2B908C4E00F0B699 /* RSSRepository.swift in Sources */,
 				A94C78762B83A08600430A54 /* FirebaseManager.swift in Sources */,
 				A94C781B2B73B9B600430A54 /* ScanResult.swift in Sources */,

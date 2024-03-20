@@ -35,12 +35,16 @@ struct ThreatDetailView: View {
                 }
             }
 
-            
             if let description = threat.description, !description.isEmpty {
                 Section("Description"){
                     let regex = #"\((.*?)\)"#
                     let descriptionWithoutLinks = description .replacingOccurrences(of: regex, with: "", options: .regularExpression, range: nil)
                     Text(descriptionWithoutLinks)
+                }
+            }
+            else if let summary = threat.wikisummary {
+                Section("Wikisummary"){
+                    Text(summary)
                 }
             }
             

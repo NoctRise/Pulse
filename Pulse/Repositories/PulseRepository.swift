@@ -13,7 +13,7 @@ class PulseRepository {
         
         let scanType = activeScan ? 1 : 0
         
-        guard let url = URL(string:"https://pulsedive.com/api/analyze.php?value=\(ioc)&probe=\(scanType)") else {
+        guard let url = URL(string:"https://pulsedive.com/api/analyze.php?value=\(ioc)&probe=\(scanType)&key=\(PulseAPIKey.apikey)") else {
             throw HTTPError.invalidURL
         }
         
@@ -24,7 +24,7 @@ class PulseRepository {
     
     static func retrieveScanResult(qid : Int) async throws -> ScanResult{
         
-        guard let url = URL(string:"https://pulsedive.com/api/analyze.php?qid=\(qid)") else {
+        guard let url = URL(string:"https://pulsedive.com/api/analyze.php?qid=\(qid)&key=\(PulseAPIKey.apikey)") else {
             throw HTTPError.invalidURL
         }
         
@@ -38,7 +38,7 @@ class PulseRepository {
     static func getThreatDetails(threatName : String) async throws -> Threat?{
         
         
-        guard let url = URL(string:"https://pulsedive.com/api/info.php?threat=\(threatName)") else {
+        guard let url = URL(string:"https://pulsedive.com/api/info.php?threat=\(threatName)&key=\(PulseAPIKey.apikey)") else {
             throw HTTPError.invalidURL
         }
         

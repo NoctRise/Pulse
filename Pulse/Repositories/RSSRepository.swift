@@ -30,11 +30,10 @@ struct RSSRepository{
             }
         }
         
-        guard itemList != nil else {
+        if itemList == nil  {
             itemList = try XMLDecoder().decode(RedditFeed.self, from: data).entry?.map{
                 $0.toItem()
             }
-            return itemList
         }
         return itemList
     }

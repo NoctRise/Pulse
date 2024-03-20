@@ -33,6 +33,7 @@ class ThreatViewModel : ObservableObject{
             catch {
                 print("Failed getting threat details: \(error)")
                 showLoadingIndicator = false
+                searched = true
             }
             
         }

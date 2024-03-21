@@ -12,6 +12,16 @@
 		A904B9B82BA1B89800820AE5 /* ThreatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */; };
 		A904B9BA2BA1E01300820AE5 /* EditFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A904B9B92BA1E01300820AE5 /* EditFeedView.swift */; };
 		A9112D882BA99F8C00B3C508 /* PulseAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9112D872BA99F8C00B3C508 /* PulseAPIKey.swift */; };
+		A9112D952BACD21800B3C508 /* Scandetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D8B2BACD21800B3C508 /* Scandetails.png */; };
+		A9112D962BACD21800B3C508 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D8C2BACD21800B3C508 /* Settings.png */; };
+		A9112D972BACD21800B3C508 /* Scan.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D8D2BACD21800B3C508 /* Scan.png */; };
+		A9112D982BACD21800B3C508 /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D8E2BACD21800B3C508 /* Favorites.png */; };
+		A9112D992BACD21800B3C508 /* Editfeed.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D8F2BACD21800B3C508 /* Editfeed.png */; };
+		A9112D9A2BACD21800B3C508 /* Scandetails2.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D902BACD21800B3C508 /* Scandetails2.png */; };
+		A9112D9B2BACD21800B3C508 /* Homescreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D912BACD21800B3C508 /* Homescreen.png */; };
+		A9112D9C2BACD21800B3C508 /* Homescreen_like.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D922BACD21800B3C508 /* Homescreen_like.png */; };
+		A9112D9D2BACD21800B3C508 /* Exploredetail.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D932BACD21800B3C508 /* Exploredetail.png */; };
+		A9112D9E2BACD21800B3C508 /* Explore.png in Resources */ = {isa = PBXBuildFile; fileRef = A9112D942BACD21800B3C508 /* Explore.png */; };
 		A92B78EA2B8F619E003FEF15 /* ScanResultThreat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */; };
 		A94C77FF2B738FCC00430A54 /* PulseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C77FE2B738FCC00430A54 /* PulseApp.swift */; };
 		A94C78012B738FCC00430A54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94C78002B738FCC00430A54 /* ContentView.swift */; };
@@ -98,6 +108,16 @@
 		A904B9B72BA1B89800820AE5 /* ThreatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatViewModel.swift; sourceTree = "<group>"; };
 		A904B9B92BA1E01300820AE5 /* EditFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFeedView.swift; sourceTree = "<group>"; };
 		A9112D872BA99F8C00B3C508 /* PulseAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAPIKey.swift; sourceTree = "<group>"; };
+		A9112D8B2BACD21800B3C508 /* Scandetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scandetails.png; sourceTree = "<group>"; };
+		A9112D8C2BACD21800B3C508 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		A9112D8D2BACD21800B3C508 /* Scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scan.png; sourceTree = "<group>"; };
+		A9112D8E2BACD21800B3C508 /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorites.png; sourceTree = "<group>"; };
+		A9112D8F2BACD21800B3C508 /* Editfeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Editfeed.png; sourceTree = "<group>"; };
+		A9112D902BACD21800B3C508 /* Scandetails2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scandetails2.png; sourceTree = "<group>"; };
+		A9112D912BACD21800B3C508 /* Homescreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Homescreen.png; sourceTree = "<group>"; };
+		A9112D922BACD21800B3C508 /* Homescreen_like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Homescreen_like.png; sourceTree = "<group>"; };
+		A9112D932BACD21800B3C508 /* Exploredetail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Exploredetail.png; sourceTree = "<group>"; };
+		A9112D942BACD21800B3C508 /* Explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Explore.png; sourceTree = "<group>"; };
 		A92B78E92B8F619E003FEF15 /* ScanResultThreat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultThreat.swift; sourceTree = "<group>"; };
 		A94C77FB2B738FCC00430A54 /* Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94C77FE2B738FCC00430A54 /* PulseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseApp.swift; sourceTree = "<group>"; };
@@ -206,6 +226,23 @@
 			path = Keys;
 			sourceTree = "<group>";
 		};
+		A9112D8A2BACD1F900B3C508 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A9112D8F2BACD21800B3C508 /* Editfeed.png */,
+				A9112D942BACD21800B3C508 /* Explore.png */,
+				A9112D932BACD21800B3C508 /* Exploredetail.png */,
+				A9112D8E2BACD21800B3C508 /* Favorites.png */,
+				A9112D922BACD21800B3C508 /* Homescreen_like.png */,
+				A9112D912BACD21800B3C508 /* Homescreen.png */,
+				A9112D8D2BACD21800B3C508 /* Scan.png */,
+				A9112D8B2BACD21800B3C508 /* Scandetails.png */,
+				A9112D902BACD21800B3C508 /* Scandetails2.png */,
+				A9112D8C2BACD21800B3C508 /* Settings.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		A94C77F22B738FCC00430A54 = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +262,7 @@
 		A94C77FD2B738FCC00430A54 /* Pulse */ = {
 			isa = PBXGroup;
 			children = (
+				A9112D8A2BACD1F900B3C508 /* Images */,
 				A9112D862BA99F7C00B3C508 /* Keys */,
 				A94C78742B83A07800430A54 /* Managers */,
 				A94C784C2B839D6C00430A54 /* GoogleService-Info.plist */,
@@ -528,8 +566,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9112D9B2BACD21800B3C508 /* Homescreen.png in Resources */,
+				A9112D972BACD21800B3C508 /* Scan.png in Resources */,
+				A9112D992BACD21800B3C508 /* Editfeed.png in Resources */,
+				A9112D962BACD21800B3C508 /* Settings.png in Resources */,
 				A94C78062B738FCD00430A54 /* Preview Assets.xcassets in Resources */,
+				A9112D952BACD21800B3C508 /* Scandetails.png in Resources */,
+				A9112D9A2BACD21800B3C508 /* Scandetails2.png in Resources */,
 				A94C78032B738FCD00430A54 /* Assets.xcassets in Resources */,
+				A9112D982BACD21800B3C508 /* Favorites.png in Resources */,
+				A9112D9C2BACD21800B3C508 /* Homescreen_like.png in Resources */,
+				A9112D9E2BACD21800B3C508 /* Explore.png in Resources */,
+				A9112D9D2BACD21800B3C508 /* Exploredetail.png in Resources */,
 				A94C784D2B839D6C00430A54 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

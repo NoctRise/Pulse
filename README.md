@@ -1,7 +1,7 @@
 
 <div align="center">
   <a >
-    <img src="images/logo.png" alt="Logo" width="200" height="200">
+    <img src="Pulse/Images/Logo.png" alt="Logo" width="200" height="200">
   </a>
   </div>  
 
